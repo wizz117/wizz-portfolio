@@ -1,0 +1,107 @@
+.container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-right: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(10, 10, 10, 0.8);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    gap: 1rem;
+}
+
+.iconWrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.certImage {
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 65, 0.2));
+    transition: all 0.3s ease;
+}
+
+.card:hover .certImage {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.5));
+    transform: scale(1.1);
+}
+
+.certTitle {
+    color: var(--secondary-color);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.description {
+    color: #aaa;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.issuer {
+    font-family: var(--font-mono);
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.link {
+    display: inline-block;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: padding-left 0.3s ease;
+    text-decoration: none;
+}
+
+.link:hover {
+    padding-left: 10px;
+    text-shadow: 0 0 5px var(--accent-color);
+}

@@ -1,141 +1,343 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
+.container {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  padding: 4rem 2rem;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
 }
 
-.main {
+.hero {
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 6rem;
+  position: relative;
+}
+
+.glitchWrapper {
+  position: relative;
+  margin-bottom: 4rem;
+  display: inline-block;
+}
+
+.statusBadge {
+  position: absolute;
+  top: 50%;
+  right: -100px;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  background: var(--primary-color);
+  color: #000;
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  box-shadow: 0 0 15px var(--primary-color);
+  white-space: nowrap;
+}
+
+.title {
+  font-size: 6rem;
+  font-family: var(--font-display);
+  margin: 0;
+  letter-spacing: 10px;
+  color: var(--text-color);
+  line-height: 1;
+  text-shadow: 2px 2px 0px var(--primary-color);
+}
+
+.profileCard {
+  background: rgba(5, 5, 5, 0.95);
+  border: 1px solid #333;
+  padding: 0;
   width: 100%;
   max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
+  margin-bottom: 3rem;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.profileCard::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--primary-color);
+  border-left: 2px solid var(--primary-color);
+}
+
+.profileCard::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+}
+
+.profileHeader {
+  display: flex;
   justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background: #111;
+  border-bottom: 1px solid #333;
 }
 
-.intro {
+.profileLabel {
+  color: #666;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.profileDecor {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.decorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.decorDot:nth-child(1) {
+  background: #ff5f56;
+}
+
+.decorDot:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.decorDot:nth-child(3) {
+  background: #27c93f;
+}
+
+.profileContent {
+  padding: 2rem;
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.profileItem {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  border-left: 2px solid #222;
+  padding-left: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.profileItem:hover {
+  border-left-color: var(--primary-color);
+}
+
+.label {
+  font-size: 0.7rem;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.value {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-family: var(--font-mono);
+}
+
+.bioText {
   text-align: left;
-  gap: 24px;
+  color: #888;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  border-top: 1px solid #222;
+  padding-top: 1.5rem;
+  font-family: var(--font-mono);
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
+.actions {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
+  gap: 2rem;
   justify-content: center;
+}
+
+.cta {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-family: var(--font-mono);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.cta:hover {
+  background: var(--primary-color);
+  color: #000;
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.ctaSecondary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  font-family: var(--font-mono);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  background: var(--secondary-color);
+  color: #000;
+  box-shadow: 0 0 20px var(--secondary-color);
+}
+
+.section {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 6rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skillCategory {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-left: 3px solid var(--primary-color);
+}
+
+.skillCategory h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+}
+
+.skillCategory p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.certCard {
+  display: flex;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.certCard:hover {
+  border-color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.certIconWrapper {
+  width: 80px;
+  height: 80px;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.certImage {
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 65, 0.2));
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.certCard:hover .certImage {
+  filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.5));
+  transform: scale(1.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+.certContent h4 {
+  color: var(--text-color);
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.certContent p {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.card {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card h2 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+}
+
+.card p {
+  color: #888;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
   }
 
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .actions {
+    flex-direction: column;
   }
 }
