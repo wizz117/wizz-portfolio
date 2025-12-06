@@ -51,14 +51,14 @@ export default function Home() {
           <Link href="/projects" className={styles.cta}>
             INITIALIZE_PROJECTS
           </Link>
-          <Link href="/journey" className={styles.ctaSecondary}>
+          <Link href="/journey" className={styles.cta}>
             VIEW_LOGS
           </Link>
-          <Link href="/certifications" className={styles.ctaSecondary}>
+          <Link href="/certifications" className={styles.cta}>
             ACCESS_CERTS
           </Link>
         </div>
-      </section>
+      </section >
 
       <section className={styles.section}>
         <h3 className={styles.sectionTitle}>SKILL_MATRIX</h3>
